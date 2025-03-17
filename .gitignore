@@ -1,0 +1,46 @@
+# Node modules
+node_modules/
+.next/
+out/
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+debug.log*
+.vscode/
+
+# Build outputs
+*.log
+*.gz
+*.zip
+.DS_Store
+.cache/
+dist/
+public/static/
+.vercel/
+.netlify/
+
+# Typescript
+*.tsbuildinfo
+
+# MacOS files
+*.DS_Store
+
+# IDE/Editor settings
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Next.js cache
+.next/
