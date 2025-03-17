@@ -33,20 +33,20 @@ export function RelateBlog() {
         </h2>
         <div className="flex gap-2">
           <Button
-            className="bg-[#fae9dc] border-transparent dark:bg-yellow-900 dark:border-transparent"
+            className="border-transparent dark:bg-yellow-900 dark:border-transparent"
             variant="outline"
             size="icon"
             onClick={prevSlide}
           >
-            <ChevronLeft className="w-4 h-4 text-[#c66d23] dark:text-[#F4B78A]" />
+            <ChevronLeft className="w-4 h-4 dark:text-[#F4B78A]" />
           </Button>
           <Button
-            className="bg-[#fae9dc] border-transparent dark:bg-yellow-900 dark:border-transparent"
+            className="border-transparent dark:bg-yellow-900 dark:border-transparent"
             variant="outline"
             size="icon"
             onClick={nextSlide}
           >
-            <ChevronRight className="w-4 h-4 text-[#c66d23] dark:text-[#F4B78A]" />
+            <ChevronRight className="w-4 h-4 dark:text-[#F4B78A]" />
           </Button>
         </div>
       </div>

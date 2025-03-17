@@ -29,7 +29,7 @@ export default function BlogSidebar() {
   return (
     <div className="flex flex-col">
       <div className="text-xl font-bold mb-6">Tìm kiếm</div>
-      <div className="relative w-full">
+      <div className="relative w-full shadow-md rounded-lg">
         <Input placeholder="Tìm kiếm bài viết" type="text" className="w-full bg-white border-none p-6"/>
         <Button className="absolute right-0 top-0 h-full px-6 bg-green-600 text-white">
           <Search size={18} />

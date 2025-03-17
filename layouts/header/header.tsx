@@ -1,13 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
+import { ArrowUp, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 import VNIcon from "@/public/assets/vietnam.png";
 import USIcon from "@/public/assets/us.png";
 import Logo from "@/public/assets/logo.png";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 interface NavItem {
   label: string;
@@ -45,12 +45,15 @@ const MenuItem = ({
   item,
   isOpen,
   setOpenItem,
+  currentPath,
 }: {
   item: NavItem;
   isOpen: boolean;
   setOpenItem: (label: string | null) => void;
+  currentPath: string;
 }) => {
   const router = useRouter();
+  const isActive = currentPath === item.url;
 
   const handleClick = (item: NavItem) => {
     if (item.subItems.length > 0) {
@@ -64,7 +67,9 @@ const MenuItem = ({
     <div className="relative">
       <button
         onClick={() => handleClick(item)}
-        className="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-100 transition"
+        className={`flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-100 transition ${
+          isActive ? "font-bold" : ""
+        }`}
       >
         {item.label}
         {item.subItems.length > 0 && (
@@ -97,6 +102,8 @@ export default function Header() {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [openItem, setOpenItem] = useState<string | null>(null);
   const router = useRouter();
+  const pathname = usePathname();
+  const firstPathSegment = "/" + pathname.split("/")[1];
 
   return (
     <div className="flex justify-between items-center rounded-full bg-white py-4 px-10 shadow-md">
@@ -112,6 +119,7 @@ export default function Header() {
             item={item}
             isOpen={openItem === item.label}
             setOpenItem={setOpenItem}
+            currentPath={firstPathSegment}
           />
         ))}
       </div>
@@ -158,8 +166,12 @@ export default function Header() {
         )}
       </div>
 
-      {/* CTA Button */}
-      <Button>Trở thành khách hàng</Button>
+      <Button className="flex flex-row gap-2 rounded-full bg-green-400 hover:bg-green-500 text-black">
+        Trở thành khách hàng
+        <div className="p-1 rounded-full bg-black rotate-45">
+          <ArrowUp size={16} color="white" />
+        </div>
+      </Button>
     </div>
   );
 }

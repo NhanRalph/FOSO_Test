@@ -12,6 +12,7 @@ import { formatDate } from "@/utils/format-date";
 import QuoteIcon from "@/public/assets/quote-icon.png";
 import { Badge } from "@/components/ui/badge";
 import { BlogData } from "@/shared/type";
+import FeedbackComponent from "../blog-feedback/blog-feedback";
 
 // Component tùy chỉnh để hiển thị hình ảnh
 const ImageComponent = (props: any) => {
@@ -255,6 +256,7 @@ export default function BlogViewer({
           </div>
       </div>
       <DraftRenderer editorState={editorState} />
+      <FeedbackComponent />
     </div>
   );
 }

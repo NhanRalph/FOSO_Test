@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body className="min-h-screen pt-2 bg-primaryBg text-gray-900 dark:bg-red-950 dark:text-zinc-200">
+      <body className="relative min-h-screen pt-2 bg-primaryBg text-gray-900 dark:bg-red-950 dark:text-zinc-200">
         <ThemeProvider>
           {/* <AuthProvider> */}
             <div
@@ -39,7 +39,6 @@ export default function RootLayout({
                 <main>{children}</main>
               </ClientWrapper>
               <div className="h-32 w-full"></div>
-              <Footer />
               <ToastContainer />
             </div>
           {/* </AuthProvider> */}
