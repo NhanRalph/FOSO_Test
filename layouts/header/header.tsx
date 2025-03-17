@@ -30,7 +30,7 @@ const navItems: NavItem[] = [
     url: "/tai-nguyen",
     subItems: [
       { label: "Blog", url: "/tai-nguyen/blog", subItems: [] },
-      { label: "Tài nguyên 2", url: "/tai-nguyen/tai-nguyen-1", subItems: [] },
+      { label: "Tài nguyên 2", url: "/tai-nguyen/tai-nguyen-2", subItems: [] },
     ],
   },
   { label: "Liên hệ", url: "/lien-he", subItems: [] },
@@ -96,10 +96,13 @@ export default function Header() {
   const [selectedLang, setSelectedLang] = useState(languages[0]);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [openItem, setOpenItem] = useState<string | null>(null);
+  const router = useRouter();
 
   return (
     <div className="flex justify-between items-center rounded-full bg-white py-4 px-10 shadow-md">
-      <Image src={Logo} alt="logo" width={100} height={100} />
+      <div onClick={() => router.replace("/")} className="cursor-pointer">
+        <Image src={Logo} alt="logo" width={100} height={100} />
+      </div>
 
       {/* Navigation */}
       <div className="flex space-x-6">

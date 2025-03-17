@@ -42,6 +42,7 @@
     "cloudinary": "^2.5.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
+    "draft-js": "^0.11.7",
     "flatpickr": "^4.6.13",
     "framer-motion": "^11.16.1",
     "fs": "^0.0.1-security",
@@ -53,6 +54,7 @@
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.3.1",
+    "react-draft-wysiwyg": "^1.15.0",
     "react-dropzone": "^14.3.5",
     "react-flatpickr": "^3.10.13",
     "react-pannellum": "^0.2.16",
@@ -65,7 +67,9 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
+    "@types/draft-js": "^0.11.18",
     "@types/react": "19.0.4",
+    "@types/react-draft-wysiwyg": "^1.13.8",
     "autoprefixer": "^10.4.21",
     "eslint": "^8",
     "eslint-config-next": "15.0.4",

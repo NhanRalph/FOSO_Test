@@ -5,23 +5,27 @@ import BlogSidebar2 from "@/public/assets/blog-sidebar-2.png";
 import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useRouter } from "next/navigation";
 
 interface Category {
     label: string;
     quantity: number;
+    url: string;
 }
 
 const categories: Category[] = [
-    { label: "Tất Cả", quantity: 108 },
-    { label: "Thiết Kế Website", quantity: 36 },
-    { label: "Thiết Kế App Mobile", quantity: 13 },
-    { label: "Quản Lý Sản Xuất", quantity: 25 },
-    { label: "Quản Lý Bán Hàng", quantity: 22 },
-    { label: "Báo Chí Nói Về FOSO", quantity: 7 },
-    { label: "Tin Tức FOSO", quantity: 5 },
+    { label: "Tất Cả", quantity: 108, url: "/tai-nguyen/blog/quan-li-san-xuat" },
+    { label: "Thiết Kế Website", quantity: 36, url: "/tai-nguyen/blog/quan-li-san-xuat" },
+    { label: "Thiết Kế App Mobile", quantity: 13, url: "/tai-nguyen/blog/quan-li-san-xuat" },
+    { label: "Quản Lý Sản Xuất", quantity: 25, url: "/tai-nguyen/blog/quan-li-san-xuat" },
+    { label: "Quản Lý Bán Hàng", quantity: 22, url: "/tai-nguyen/blog/quan-li-san-xuat" },
+    { label: "Báo Chí Nói Về FOSO", quantity: 7, url: "/tai-nguyen/blog/quan-li-san-xuat" },
+    { label: "Tin Tức FOSO", quantity: 5, url: "/tai-nguyen/blog/quan-li-san-xuat" },
 ];
 
 export default function BlogSidebar() {
+  const router = useRouter();
+
   return (
     <div className="flex flex-col">
       <div className="text-xl font-bold mb-6">Tìm kiếm</div>
@@ -35,7 +39,7 @@ export default function BlogSidebar() {
       <div className="text-xl font-bold my-6">Danh mục</div>
       {/* List categories label and quantity */}
         {categories.map((category, index) => (
-            <div key={index} className="flex items-center justify-between py-2 border-b border-gray-200 text-sm text-gray-500">
+            <div onClick={() => router.replace(category.url)} key={index} className="flex items-center justify-between py-2 border-b border-gray-200 text-sm text-gray-500">
             <div>{category.label}</div>
             <div>{category.quantity}</div>
             </div>

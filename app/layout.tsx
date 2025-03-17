@@ -38,6 +38,7 @@ export default function RootLayout({
               <ClientWrapper>
                 <main>{children}</main>
               </ClientWrapper>
+              <div className="h-32 w-full"></div>
               <Footer />
               <ToastContainer />
             </div>

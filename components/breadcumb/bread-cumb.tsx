@@ -6,10 +6,23 @@ import { ChevronRight, Home } from "lucide-react";
 
 // Map slug -> Tiếng Việt
 const slugToTitleMap: { [key: string]: string } = {
-  "tai-nguyen": "Tài Nguyên",
-  "blog": "Blog",
   "ve-chung-toi": "Về Chúng Tôi",
+
   "giai-phap": "Giải Pháp",
+  "giai-phap-1": "Giải Pháp 1",
+  "giai-phap-2": "Giải Pháp 2",
+
+  "tai-nguyen": "Tài Nguyên",
+  "tai-nguyen-2": "Tài Nguyên 2",
+  "blog": "Blog",
+  "quan-li-san-xuat": "Quản Lý Sản Xuất",
+  "quan-ly-ban-hang": "Quản Lý Bán Hàng",
+  "thiet-ke-website": "Thiết Kế Website",
+  "thiet-ke-app-mobile": "Thiết Kế App Mobile",
+  "bao-chi-noi-ve-foso": "Báo Chí Nói Về FOSO",
+  "tin-tuc-foso": "Tin Tức FOSO",
+  "tat-ca": "Tất cả",
+
   "lien-he": "Liên Hệ",
 };
 
@@ -32,7 +45,7 @@ export default function Breadcrumb() {
           <div key={href} className="flex items-center">
             <ChevronRight size={16} className="mx-2 text-gray-400" />
             {isLast ? (
-              <span className="text-gray-900 font-medium">{displayText}</span>
+              <span className="text-gray-900 font-medium font-semibold">{displayText}</span>
             ) : (
               <Link href={href} className="hover:text-gray-800 capitalize">
                 {displayText}
