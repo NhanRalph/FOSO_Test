@@ -27,12 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body className="relative min-h-screen pt-2 bg-primaryBg text-gray-900 dark:bg-red-950 dark:text-zinc-200">
+      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen pt-2 bg-primaryBg text-gray-900 dark:bg-red-950 dark:text-zinc-200`}>
         <ThemeProvider>
           {/* <AuthProvider> */}
-            <div
-              className={`${geistSans.variable} ${geistMono.variable} min-h-screen w-4/5 mx-auto bg-primaryBg text-gray-900 dark:bg-red-950 dark:text-zinc-200`}
-            >
               <Header />
               <Breadcrumb />
               <ClientWrapper>
@@ -40,7 +37,6 @@ export default function RootLayout({
               </ClientWrapper>
               <div className="h-32 w-full"></div>
               <ToastContainer />
-            </div>
           {/* </AuthProvider> */}
         </ThemeProvider>
       </body>

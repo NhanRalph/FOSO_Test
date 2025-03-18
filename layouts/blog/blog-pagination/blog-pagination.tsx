@@ -28,7 +28,7 @@ const BlogPagination: React.FC<PaginationProps> = ({ currentPage, totalPages, on
   const pageNumbers = getPageNumbers();
 
   return (
-    <div className="mt-4 flex justify-between items-center space-x-2">
+    <div className="mt-4 flex w-4/5 mx-auto justify-between items-center space-x-2">
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}

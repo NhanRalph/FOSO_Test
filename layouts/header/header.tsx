@@ -124,7 +124,7 @@ export default function Header() {
   const firstPathSegment = "/" + pathname.split("/")[1];
 
   return (
-    <div className="flex justify-between items-center rounded-full bg-white py-4 px-10 shadow-md">
+    <div className="flex w-4/5 mx-auto justify-between items-center rounded-full bg-white py-4 px-10 shadow-md">
       <div onClick={() => router.replace("/")} className="cursor-pointer">
         <Image src={Logo} alt="logo" width={100} height={100} />
       </div>
