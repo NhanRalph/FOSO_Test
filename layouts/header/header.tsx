@@ -186,7 +186,7 @@ export default function Header() {
           <Image src={Logo} alt="logo" width={100} height={100} />
         </div>
 
-        <div className="hidden lg:flex justify-center space-x-10 w-full mt-2">
+        <div className="hidden lg:flex justify-center items-center space-x-10 w-full">
         {navItems.map((item, index) => (
           <MenuItem
             key={index}
