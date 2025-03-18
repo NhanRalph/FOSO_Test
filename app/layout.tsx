@@ -3,11 +3,11 @@ import { ThemeProvider } from "../context/ThemeContext";
 // import { AuthProvider } from "../context/AuthContext";
 import { ToastContainer } from "react-toastify";
 import Header from "@/layouts/header/header";
-import Footer from "@/layouts/footer/footer";
 import './globals.css';
 import Breadcrumb from "@/components/breadcumb/bread-cumb";
 import ClientWrapper from "./ClientWrapper";
 import metadata from './metadata';
+import FloatThemeComponent from "@/components/float-theme/float-theme";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen pt-2 bg-primaryBg text-gray-900 dark:bg-red-950 dark:text-zinc-200`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen pt-2 bg-primaryBg text-gray-900 dark:bg-primaryDarkBg dark:text-zinc-200 overflow-x-hidden`}>
         <ThemeProvider>
           {/* <AuthProvider> */}
               <Header />
@@ -36,6 +36,7 @@ export default function RootLayout({
                 <main>{children}</main>
               </ClientWrapper>
               <div className="h-32 w-full"></div>
+              <FloatThemeComponent />
               <ToastContainer />
           {/* </AuthProvider> */}
         </ThemeProvider>

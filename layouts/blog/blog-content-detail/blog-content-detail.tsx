@@ -71,7 +71,7 @@ const DivQuote = (props: { block?: ContentBlock }) => {
 
   return (
     <div className="relative">
-      <div className="w-4/5 mx-auto pl-8 py-4 my-4 italic text-center text-gray-600">
+      <div className="w-4/5 mx-auto pl-8 py-4 my-4 italic text-center text-gray-500 dark:text-gray-400">
         {text}
       </div>
       <Image
@@ -96,7 +96,7 @@ const HeaderRenderer = (props: { block: ContentBlock }) => {
     // Kiểm tra nếu text rỗng thì không render
     if (!text.trim()) return null;
   return (
-    <h2 id={`header-${block.getKey()}`} key={block.getKey()} className="mt-4 mb-2 text-xl font-bold text-green-700">
+    <h2 id={`header-${block.getKey()}`} key={block.getKey()} className="mt-4 mb-2 text-xl font-bold text-green-500">
       {text}
     </h2>
   );
@@ -105,7 +105,7 @@ const HeaderRenderer = (props: { block: ContentBlock }) => {
 const DraftRenderer = ({ editorState }: { editorState: EditorState }) => {
   const customStyleMap = {
     GREEN_TEXT_BOLD: {
-      color: "green",
+      color: "#00c761",
       fontWeight: "bold",
     },
   };
@@ -240,10 +240,10 @@ export default function BlogViewer({
             />
             <div>
               <div className="text-sm">Tác giả</div>
-              <div className="text-sm font-semibold text-black">{blogData.author}</div>
+              <div className="text-sm font-semibold text-black dark:text-green-700">{blogData.author}</div>
             </div>
           </div>
-          <div className="flex flex-row gap-8 items-center pr-4">
+          <div className="flex flex-row gap-8 items-center pr-4 text-gray-500 dark:text-gray-400">
               <div className="text-sm flex flex-row gap-2 border-r-2 pr-8">
                 <Calendar size={16} />
                 {formatDate(blogData.createdAt)}

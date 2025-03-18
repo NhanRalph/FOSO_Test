@@ -7,7 +7,7 @@ export default function BlogHeader() {
   return (
     <div className="relative flex flex-row justify-between items-center px-20">
   {/* Gradient Effect */}
-  <div className="absolute top-0 left-0 -translate-x-3/4 -translate-y-1 w-[500px] h-[500px] bg-gradient-to-br from-[#E0FFCC] to-[#CCFFEC] rounded-full filter blur-3xl opacity-50"></div>
+  <div className="absolute top-0 left-0 -translate-x-3/4 -translate-y-1 w-[500px] h-[500px] bg-gradient-to-br from-[#E0FFCC] to-[#CCFFEC] dark:from-[#002900] rounded-full filter blur-3xl opacity-50"></div>
 
   <Image src={Element1} alt="element-1" width={100} height={100} />
 
@@ -34,7 +34,7 @@ export default function BlogHeader() {
 
   <Image src={Element2} alt="element-2" width={100} height={100} />
 
-  <div className="absolute top-0 right-0 translate-x-3/4 translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-[#E0FFCC] to-[#CCFFEC] rounded-full filter blur-3xl opacity-50"></div>
+  <div className="absolute top-0 right-0 translate-x-3/4 translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-[#E0FFCC] to-[#CCFFEC] dark:from-[#002900] rounded-full filter blur-3xl opacity-50"></div>
 </div>
 
   );

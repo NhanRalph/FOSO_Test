@@ -28,11 +28,11 @@ const BlogPagination: React.FC<PaginationProps> = ({ currentPage, totalPages, on
   const pageNumbers = getPageNumbers();
 
   return (
-    <div className="mt-4 flex w-4/5 mx-auto justify-between items-center space-x-2">
+    <div className="mt-6 flex w-4/5 mx-auto justify-between items-center space-x-2">
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="flex gap-2 items-center px-3 py-2 text-gray-600 hover:text-green-600 disabled:hover:text-gray-600 disabled:opacity-50"
+        className="flex gap-2 items-center px-3 py-2 text-gray-600 hover:text-green-800 disabled:hover:text-gray-600 disabled:opacity-50"
       >
         <ArrowLeft size={20} />
         Trang trước
@@ -46,7 +46,7 @@ const BlogPagination: React.FC<PaginationProps> = ({ currentPage, totalPages, on
               onClick={() => onPageChange(page)}
               className={`px-3 py-2 rounded-md ${
                 currentPage === page ? "bg-green-200 text-black" : ""
-              } hover:bg-green-300`}
+              } hover:bg-green-300 hover:text-black`}
             >
               {page.toString().padStart(2, "0")}
             </button>
@@ -57,7 +57,7 @@ const BlogPagination: React.FC<PaginationProps> = ({ currentPage, totalPages, on
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="flex gap-2 items-center px-3 py-2 text-gray-600 hover:text-green-600 disabled:hover:text-gray-600 disabled:opacity-50"
+        className="flex gap-2 items-center px-3 py-2 text-gray-600 hover:text-green-800 disabled:hover:text-gray-600 disabled:opacity-50"
       >
         Trang sau
         <ArrowRight size={20} />

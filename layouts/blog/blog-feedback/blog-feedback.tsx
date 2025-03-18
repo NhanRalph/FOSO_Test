@@ -49,9 +49,9 @@ const FeedbackComponent: React.FC = () => {
   ];
 
   return (
-    <div className="w-full mx-auto p-6 bg-white rounded-3xl shadow-md mt-8">
+    <div className="w-full mx-auto p-6 bg-white dark:bg-[#00000050] rounded-3xl shadow-md mt-8">
       <div className="text-center mb-4">
-        <h2 className="text-2xl font-bold text-gray-700">Bạn thấy bài viết như thế nào?</h2>
+        <h2 className="text-2xl font-bold text-gray-700 dark:text-zinc-200">Bạn thấy bài viết như thế nào?</h2>
         <p className="text-gray-500 mt-1">4 phản hồi</p>
       </div>
 
@@ -62,11 +62,11 @@ const FeedbackComponent: React.FC = () => {
             onClick={() => handleVote(option.id)}
             className={`flex flex-col items-center p-4 rounded-lg  w-24 ${
               selectedOption === option.id ? 'border-2 border-green-500' : ''
-            } hover:bg-gray-100 transition-all`}
+            } hover:bg-gray-100 dark:hover:bg-[#ffffff15] transition-all`}
           >
             <div className="text-3xl mb-2">{option.emoji}</div>
-            <div className="text-xl font-bold text-gray-700">{option.count}</div>
-            <div className="text-sm text-gray-500">{option.label}</div>
+            <div className="text-xl font-bold text-gray-700 text-gray-300">{option.count}</div>
+            <div className="text-sm text-gray-500 dark:text-gray-400">{option.label}</div>
           </button>
         ))}
       </div>

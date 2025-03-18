@@ -26,27 +26,27 @@ export function RelateBlog() {
   };
 
   return (
-    <section className="container py-8 dark:bg-red-950 px-4">
+    <section className="container py-8 px-4 w-4/5 mx-auto">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl md:text-2xl font-bold dark:text-gray-200">
           Bài Viết Liên Quan
         </h2>
         <div className="flex gap-2">
           <Button
-            className="border-transparent dark:bg-yellow-900 dark:border-transparent"
+            className="border-transparent"
             variant="outline"
             size="icon"
             onClick={prevSlide}
           >
-            <ChevronLeft className="w-4 h-4 dark:text-[#F4B78A]" />
+            <ChevronLeft className="w-4 h-4" />
           </Button>
           <Button
-            className="border-transparent dark:bg-yellow-900 dark:border-transparent"
+            className="border-transparent"
             variant="outline"
             size="icon"
             onClick={nextSlide}
           >
-            <ChevronRight className="w-4 h-4 dark:text-[#F4B78A]" />
+            <ChevronRight className="w-4 h-4" />
           </Button>
         </div>
       </div>

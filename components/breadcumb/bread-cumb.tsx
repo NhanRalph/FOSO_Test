@@ -15,8 +15,8 @@ const slugToTitleMap: { [key: string]: string } = {
   "tai-nguyen": "Tài Nguyên",
   "tai-nguyen-2": "Tài Nguyên 2",
   "blog": "Blog",
-  "quan-li-san-xuat": "Quản Lý Sản Xuất",
-  "quan-ly-ban-hang": "Quản Lý Bán Hàng",
+  "quan-li-san-xuat": "Quản Lí Sản Xuất",
+  "quan-ly-ban-hang": "Quản Lí Bán Hàng",
   "thiet-ke-website": "Thiết Kế Website",
   "thiet-ke-app-mobile": "Thiết Kế App Mobile",
   "bao-chi-noi-ve-foso": "Báo Chí Nói Về FOSO",
@@ -31,8 +31,8 @@ export default function Breadcrumb() {
   const pathSegments = pathname.split("/").filter((segment) => segment);
 
   return (
-    <nav aria-label="breadcrumb" className="flex items-center text-gray-600 text-sm p-10 w-4/5 mx-auto">
-      <Link href="/" className="flex items-center hover:text-gray-800">
+    <nav aria-label="breadcrumb" className="flex items-center text-gray-600 dark:text-zinc-200 text-sm p-10 w-4/5 mx-auto">
+      <Link href="/" className="flex items-center hover:text-gray-800 dark:hover:text-green-400">
         <Home size={18} />
       </Link>
 
@@ -45,9 +45,9 @@ export default function Breadcrumb() {
           <div key={href} className="flex items-center">
             <ChevronRight size={16} className="mx-2 text-gray-400" />
             {isLast ? (
-              <span className="text-gray-900 font-medium font-semibold">{displayText}</span>
+              <span className="text-green-500 font-medium font-semibold">{displayText}</span>
             ) : (
-              <Link href={href} className="hover:text-gray-800 capitalize">
+              <Link href={href} className="hover:text-gray-800 dark:hover:text-green-400 capitalize">
                 {displayText}
               </Link>
             )}

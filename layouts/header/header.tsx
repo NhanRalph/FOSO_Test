@@ -64,7 +64,6 @@ const MenuItem = ({
     }
   };
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -86,8 +85,12 @@ const MenuItem = ({
       <button
         onClick={() => handleClick(item)}
         className={`flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-300 
-          ${isActive ? "font-bold" : "text-gray-700"} 
-          hover:text-green-500 hover:tracking-widest`}
+          ${
+            isActive
+              ? "font-bold text-green-500 dark:text-green-400"
+              : "text-gray-700 dark:text-gray-200"
+          } 
+          hover:text-green-500 dark:hover:text-green-400 hover:tracking-widest`}
       >
         {item.label}
         {item.subItems.length > 0 && (
@@ -99,12 +102,12 @@ const MenuItem = ({
       </button>
 
       {isOpen && item.subItems.length > 0 && (
-        <ul className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md border border-gray-200 z-50">
+        <ul className="absolute left-0 mt-2 w-48 bg-white dark:bg-[#1E1E1E] shadow-lg rounded-md border border-gray-200 dark:border-gray-700 z-50">
           {item.subItems.map((sub, index) => (
             <li
               onClick={() => handleClick(sub)}
               key={index}
-              className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+              className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-[#2D2D2D] cursor-pointer"
             >
               {sub.label}
             </li>
@@ -124,7 +127,7 @@ export default function Header() {
   const firstPathSegment = "/" + pathname.split("/")[1];
 
   return (
-    <div className="flex w-4/5 mx-auto justify-between items-center rounded-full bg-white py-4 px-10 shadow-md">
+    <div className="flex w-4/5 mx-auto justify-between items-center rounded-full bg-white dark:bg-[#00290030] py-4 px-10 shadow-md dark:shadow-green-950 backdrop-blur-md">
       <div onClick={() => router.replace("/")} className="cursor-pointer">
         <Image src={Logo} alt="logo" width={100} height={100} />
       </div>
@@ -146,7 +149,7 @@ export default function Header() {
       <div className="relative">
         <button
           onClick={() => setIsLangOpen(!isLangOpen)}
-          className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-100 transition"
+          className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-100 dark:bg-[#00000050] dark:hover:bg-[#00000080] transition"
         >
           <Image
             src={selectedLang.icon}
@@ -164,11 +167,11 @@ export default function Header() {
         </button>
 
         {isLangOpen && (
-          <ul className="absolute right-0 mt-2 w-32 bg-white shadow-lg rounded-md border border-gray-200 z-50">
+          <ul className="absolute right-0 mt-2 w-32 bg-white dark:bg-[#1E1E1E] shadow-lg rounded-md border border-gray-200 dark:border-gray-700 z-50">
             {languages.map((lang, index) => (
               <li
                 key={index}
-                className={`flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer ${
+                className={`flex items-center gap-2 px-4 py-2 hover:bg-gray-100 dark:hover:bg-[#2D2D2D] cursor-pointer ${
                   lang.code === selectedLang.code ? "font-semibold" : ""
                 }`}
                 onClick={() => {

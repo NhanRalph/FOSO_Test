@@ -12,7 +12,7 @@ import ShareSocial from "@/components/share-social/share-social";
 export default function BlogPageQuanli() {
 
   return (
-    <div className="">
+    <div className="relative">
       <Content leftContent={<BlogViewer dataBlog={dataBlogDetail} />} rightContent={<BlogIndex dataBlog={dataBlogDetail} />} />
       <RelateBlog />
       <ShareSocial />

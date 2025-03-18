@@ -17,8 +17,8 @@ const categories: Category[] = [
     { label: "Tất Cả", quantity: 108, url: "/tai-nguyen/blog/quan-li-san-xuat" },
     { label: "Thiết Kế Website", quantity: 36, url: "/tai-nguyen/blog/quan-li-san-xuat" },
     { label: "Thiết Kế App Mobile", quantity: 13, url: "/tai-nguyen/blog/quan-li-san-xuat" },
-    { label: "Quản Lý Sản Xuất", quantity: 25, url: "/tai-nguyen/blog/quan-li-san-xuat" },
-    { label: "Quản Lý Bán Hàng", quantity: 22, url: "/tai-nguyen/blog/quan-li-san-xuat" },
+    { label: "Quản Lí Sản Xuất", quantity: 25, url: "/tai-nguyen/blog/quan-li-san-xuat" },
+    { label: "Quản Lí Bán Hàng", quantity: 22, url: "/tai-nguyen/blog/quan-li-san-xuat" },
     { label: "Báo Chí Nói Về FOSO", quantity: 7, url: "/tai-nguyen/blog/quan-li-san-xuat" },
     { label: "Tin Tức FOSO", quantity: 5, url: "/tai-nguyen/blog/quan-li-san-xuat" },
 ];
@@ -31,7 +31,7 @@ export default function BlogSidebar() {
       <div className="text-xl font-bold mb-6">Tìm kiếm</div>
       <div className="relative w-full shadow-md rounded-lg">
         <Input placeholder="Tìm kiếm bài viết" type="text" className="w-full bg-white border-none p-6"/>
-        <Button className="absolute right-0 top-0 h-full px-6 bg-green-600 text-white">
+        <Button className="absolute right-0 top-0 h-full px-6 bg-green-600 text-white dark:bg-green-500 dark:hover:bg-green-400">
           <Search size={18} />
         </Button>
       </div>
@@ -39,7 +39,7 @@ export default function BlogSidebar() {
       <div className="text-xl font-bold my-6">Danh mục</div>
       {/* List categories label and quantity */}
         {categories.map((category, index) => (
-            <div onClick={() => router.replace(category.url)} key={index} className="cursor-pointer flex items-center justify-between py-2 border-b border-gray-200 text-sm text-gray-500 hover:text-green-600">
+            <div onClick={() => router.replace(category.url)} key={index} className="cursor-pointer flex items-center justify-between py-2 border-b border-gray-200 text-sm text-gray-500 dark:text-gray-400 hover:text-green-500  dark:hover:text-green-500">
             <div>{category.label}</div>
             <div>{category.quantity}</div>
             </div>

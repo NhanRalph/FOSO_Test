@@ -20,6 +20,8 @@ module.exports = {
     extend: {
       colors: {
         primaryBg: "#fefefe", // Background primary color
+
+        primaryDarkBg: "#121212", // Background dark primary color
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
