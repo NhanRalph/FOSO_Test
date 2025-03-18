@@ -56,20 +56,14 @@ const MenuItem = ({
   const isActive = currentPath === item.url;
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const handleClick = (item: NavItem, isSubItem = false) => {
+  const handleClick = (item: NavItem) => {
     if (item.subItems.length > 0) {
+      console.log("click have sub");
       setOpenItem(isOpen ? null : item.label);
     } else {
+      console.log("click have sub");
       router.replace(item.url);
-      if (!isSubItem) {
-        setOpenItem(null); // Chỉ đóng menu nếu là mục chính
-      }
     }
-  };
-
-  const handleSubItemClick = (subItem: NavItem) => {
-    router.replace(subItem.url);
-    setOpenItem(null); // Đóng menu sau khi chuyển hướng
   };
 
   useEffect(() => {
@@ -92,7 +86,7 @@ const MenuItem = ({
     <div className="relative" ref={menuRef}>
       <button
         onClick={() => handleClick(item)}
-        className={`flex items-center gap-2 px-1 lg:px-2 py-2 rounded-md transition-all duration-300 
+        className={`flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-300 
           ${
             isActive
               ? "font-bold text-green-500 dark:text-green-400"
@@ -113,7 +107,7 @@ const MenuItem = ({
         <ul className="absolute left-0 mt-2 w-48 bg-white dark:bg-[#1E1E1E] shadow-lg rounded-md border border-gray-200 dark:border-gray-700 z-50">
           {item.subItems.map((sub, index) => (
             <li
-              onClick={() => handleSubItemClick(sub)}
+              onClick={() => handleClick(sub)}
               key={index}
               className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-[#2D2D2D] cursor-pointer"
             >
@@ -175,6 +169,7 @@ export default function Header() {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openItem, setOpenItem] = useState<string | null>(null);
+  const [openItem2, setOpenItem2] = useState<string | null>(null);
   const router = useRouter();
   const pathname = usePathname();
   const firstPathSegment = "/" + pathname.split("/")[1];
@@ -196,8 +191,8 @@ export default function Header() {
           <MenuItem
             key={index}
             item={item}
-            isOpen={openItem === item.label}
-            setOpenItem={setOpenItem}
+            isOpen={openItem2 === item.label}
+            setOpenItem={setOpenItem2}
             currentPath={firstPathSegment}
           />
         ))}
