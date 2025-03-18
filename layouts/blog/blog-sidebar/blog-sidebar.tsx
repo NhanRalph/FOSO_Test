@@ -39,7 +39,7 @@ export default function BlogSidebar() {
       <div className="text-xl font-bold my-6">Danh mục</div>
       {/* List categories label and quantity */}
         {categories.map((category, index) => (
-            <div onClick={() => router.replace(category.url)} key={index} className="flex items-center justify-between py-2 border-b border-gray-200 text-sm text-gray-500">
+            <div onClick={() => router.replace(category.url)} key={index} className="cursor-pointer flex items-center justify-between py-2 border-b border-gray-200 text-sm text-gray-500 hover:text-green-600">
             <div>{category.label}</div>
             <div>{category.quantity}</div>
             </div>

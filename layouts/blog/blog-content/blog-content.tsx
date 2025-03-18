@@ -2,9 +2,9 @@ import Image from "next/image";
 import React from "react";
 import BlogBanner from "@/public/assets/blog-banner.png";
 import BlogCard from "@/components/blog-card/blog-card";
-import { blogs } from "@/shared/data";
+import { Blog } from "@/shared/type";
 
-export default function BlogContent() {
+export default function BlogContent({ blogs } : {blogs: Blog[]}) {
   return (
     <div className="flex flex-col">
       <div className="text-2xl font-bold">Tất Cả Bài Viết</div>

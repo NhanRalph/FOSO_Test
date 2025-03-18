@@ -7,7 +7,7 @@ import { Button } from '../ui/button'
 
 export default function BlogCard({blog, index}: {blog: Blog, index: number}) {
   return (
-    <div key={index} className="flex flex-col gap-4">
+    <div key={index} className="flex flex-col gap-4 hover:relative hover:-top-1 transition-all duration-300 cursor-pointer">
     <Image
       src={blog.image}
       alt={blog.title}
@@ -18,7 +18,7 @@ export default function BlogCard({blog, index}: {blog: Blog, index: number}) {
     <div>
       <Badge variant="info">{blog.type}</Badge>
     </div>
-    <div className="text-lg font-bold">{blog.title}</div>
+    <div className="text-lg font-bold" style={{ height: 100}}>{blog.title}</div>
     <div className="flex flex-row gap-4 text-gray-500">
       <div className="text-sm flex flex-row gap-2">
         <Calendar size={16} />

@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowUp, ChevronDown } from "lucide-react";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import VNIcon from "@/public/assets/vietnam.png";
 import USIcon from "@/public/assets/us.png";
 import Logo from "@/public/assets/logo.png";
@@ -54,6 +54,7 @@ const MenuItem = ({
 }) => {
   const router = useRouter();
   const isActive = currentPath === item.url;
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const handleClick = (item: NavItem) => {
     if (item.subItems.length > 0) {
@@ -63,13 +64,30 @@ const MenuItem = ({
     }
   };
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setOpenItem(null);
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, setOpenItem]);
+
   return (
-    <div className="relative">
+    <div className="relative" ref={menuRef}>
       <button
         onClick={() => handleClick(item)}
-        className={`flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-100 transition ${
-          isActive ? "font-bold" : ""
-        }`}
+        className={`flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-300 
+          ${isActive ? "font-bold" : "text-gray-700"} 
+          hover:text-green-500 hover:tracking-widest`}
       >
         {item.label}
         {item.subItems.length > 0 && (
@@ -128,7 +146,7 @@ export default function Header() {
       <div className="relative">
         <button
           onClick={() => setIsLangOpen(!isLangOpen)}
-          className="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-100 transition"
+          className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-100 transition"
         >
           <Image
             src={selectedLang.icon}
