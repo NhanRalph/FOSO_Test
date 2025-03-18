@@ -20,7 +20,7 @@ export default function BlogContent({ blogs } : {blogs: Blog[]}) {
       </div>
 
       {/* Grid blogs 2 cols, Image size 300 300 */}
-      <div className="grid grid-cols-2 gap-4 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
         {blogs.map((blog, index) => (
           <BlogCard key={index} blog={blog} index={index} />
         ))}

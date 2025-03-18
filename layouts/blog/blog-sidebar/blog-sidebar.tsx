@@ -29,12 +29,19 @@ export default function BlogSidebar() {
   return (
     <div className="flex flex-col">
       <div className="text-xl font-bold mb-6">Tìm kiếm</div>
-      <div className="relative w-full shadow-md rounded-lg">
-        <Input placeholder="Tìm kiếm bài viết" type="text" className="w-full bg-white border-none p-6"/>
-        <Button className="absolute right-0 top-0 h-full px-6 bg-green-600 text-white dark:bg-green-500 dark:hover:bg-green-400">
-          <Search size={18} />
-        </Button>
-      </div>
+      <div className="w-full shadow-md rounded-lg grid grid-cols-[1fr_auto] bg-white">
+  <Input
+    placeholder="Tìm kiếm bài viết"
+    type="text"
+    className="bg-white border-none p-4 w-full h-full"
+  />
+  <Button className="h-full px-6 bg-green-600 text-white dark:bg-green-500 dark:hover:bg-green-400 flex items-center">
+    <Search size={18} />
+  </Button>
+</div>
+
+
+
 
       <div className="text-xl font-bold my-6">Danh mục</div>
       {/* List categories label and quantity */}
@@ -45,7 +52,7 @@ export default function BlogSidebar() {
             </div>
         ))}
 
-      <div className="my-8">
+      <div className="my-8 hidden md:block">
         <Image
           src={BlogSidebar1}
           alt="Banner"
@@ -53,7 +60,7 @@ export default function BlogSidebar() {
           height={400}
           className="w-full h-full object-cover rounded-lg"
         />
-      </div><div className="my-8">
+      </div><div className="my-8 hidden md:block">
         <Image
           src={BlogSidebar2}
           alt="Banner"

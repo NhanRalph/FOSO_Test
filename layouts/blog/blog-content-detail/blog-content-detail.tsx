@@ -229,7 +229,7 @@ export default function BlogViewer({
             </div>
         <h1 className="text-4xl font-bold my-4">{blogData.title}</h1>
         
-        <div className="flex flex-row items-center justify-between gap-4 text-gray-500">
+        <div className="flex flex-col items-start lg:flex-row lg:items-center justify-between gap-4 text-gray-500">
           <div className="flex flex-row gap-4">
             <Image
               src={blogData.avatar}

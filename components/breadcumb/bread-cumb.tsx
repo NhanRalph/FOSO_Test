@@ -31,7 +31,7 @@ export default function Breadcrumb() {
   const pathSegments = pathname.split("/").filter((segment) => segment);
 
   return (
-    <nav aria-label="breadcrumb" className="flex items-center text-gray-600 dark:text-zinc-200 text-sm p-10 w-4/5 mx-auto">
+    <nav aria-label="breadcrumb" className="hidden sm:flex items-center text-gray-600 dark:text-zinc-200 text-sm p-10 w-[90%] md:w-4/5 mx-auto">
       <Link href="/" className="flex items-center hover:text-gray-800 dark:hover:text-green-400">
         <Home size={18} />
       </Link>

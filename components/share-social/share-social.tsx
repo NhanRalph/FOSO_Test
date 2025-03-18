@@ -26,11 +26,11 @@ const socials = [
 
 export default function ShareSocial() {
   return (
-    <div className="absolute left-[4%] top-[2%] flex flex-col space-y-4">
+    <div className="fixed left-[88%] lg:left-[4%] top-[30%] flex flex-col space-y-4 z-50">
       <div className="text-base font-bold">Chia sẻ</div>
       <div className="flex flex-col space-y-4 items-center">
         {socials.map((social, index) => (
-            <div key={index} className="cursor-pointer h-12 w-12 rounded-lg border border-2 border-green-500 flex items-center justify-center">
+            <div key={index} className="cursor-pointer h-12 w-12 rounded-lg border border-2 border-green-500 bg-white dark:bg-primaryDarkBg flex items-center justify-center">
                 <a href={social.link} target="_blank" rel="noreferrer">
                     <FontAwesomeIcon icon={social.icon} size="lg" color="green" />
                 </a>

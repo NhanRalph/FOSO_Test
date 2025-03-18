@@ -27,19 +27,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen pt-2 bg-primaryBg text-gray-900 dark:bg-primaryDarkBg dark:text-zinc-200 overflow-x-hidden`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-primaryBg text-gray-900 dark:bg-primaryDarkBg dark:text-zinc-200 overflow-x-hidden`}>
+      <main>
         <ThemeProvider>
           {/* <AuthProvider> */}
               <Header />
               <Breadcrumb />
               <ClientWrapper>
-                <main>{children}</main>
+                {children}
               </ClientWrapper>
               <div className="h-32 w-full"></div>
               <FloatThemeComponent />
               <ToastContainer />
           {/* </AuthProvider> */}
         </ThemeProvider>
+        </main>
       </body>
     </html>
   );

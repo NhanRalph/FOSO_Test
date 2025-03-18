@@ -30,7 +30,7 @@ export default function BlogIndex({ dataBlog }: { dataBlog: BlogData }) {
             key={header.key}
             className={`cursor-pointer text-sm transition-all mb-2 ${
               header.type === "heading-two" ? "" : "ml-4"
-            } ${selectedId === header.id ? "text-green-700 font-semibold" : ""}`}
+            } ${selectedId === header.id ? "text-green-500 font-semibold" : ""}`}
             onClick={() => {
               setSelectedId(header.id);
               document
@@ -43,7 +43,7 @@ export default function BlogIndex({ dataBlog }: { dataBlog: BlogData }) {
         ))}
       </ul>
 
-      <div className="my-8">
+      <div className="my-8 hidden md:block">
         <Image
           src={BlogSidebar1}
           alt="Banner"
@@ -52,7 +52,7 @@ export default function BlogIndex({ dataBlog }: { dataBlog: BlogData }) {
           className="w-full h-full object-cover rounded-lg"
         />
       </div>
-      <div className="my-8">
+      <div className="my-8 hidden md:block">
         <Image
           src={BlogSidebar2}
           alt="Banner"

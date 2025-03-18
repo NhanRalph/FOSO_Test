@@ -9,6 +9,18 @@ type PaginationProps = {
 
 const BlogPagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
   const getPageNumbers = () => {
+    const isSmallScreen = typeof window !== "undefined" && window.innerWidth < 640; // sm breakpoint
+
+    if (isSmallScreen) {
+      // Chỉ hiển thị tối đa 3 số trang trên màn hình nhỏ
+      const pages = new Set<number>();
+      pages.add(1); // Trang đầu
+      pages.add(totalPages); // Trang cuối
+      pages.add(currentPage); // Trang hiện tại
+
+      return [...pages].sort((a, b) => a - b);
+    }
+
     if (totalPages <= 5) return Array.from({ length: totalPages }, (_, i) => i + 1);
 
     const pages = new Set<number>();
@@ -35,13 +47,15 @@ const BlogPagination: React.FC<PaginationProps> = ({ currentPage, totalPages, on
         className="flex gap-2 items-center px-3 py-2 text-gray-600 hover:text-green-800 disabled:hover:text-gray-600 disabled:opacity-50"
       >
         <ArrowLeft size={20} />
+        <span className="hidden sm:block">
         Trang trước
+        </span>
       </button>
 
       <div className="flex space-x-2 items-end">
         {pageNumbers.map((page, index) => (
           <React.Fragment key={page}>
-            {index > 0 && pageNumbers[index - 1] !== page - 1 && <span className="px-2">...</span>}
+            {/* {index > 0 && pageNumbers[index - 1] !== page - 1 && <span className="px-2">...</span>} */}
             <button
               onClick={() => onPageChange(page)}
               className={`px-3 py-2 rounded-md ${
@@ -59,7 +73,9 @@ const BlogPagination: React.FC<PaginationProps> = ({ currentPage, totalPages, on
         disabled={currentPage === totalPages}
         className="flex gap-2 items-center px-3 py-2 text-gray-600 hover:text-green-800 disabled:hover:text-gray-600 disabled:opacity-50"
       >
+        <span className="hidden sm:block">
         Trang sau
+        </span>
         <ArrowRight size={20} />
       </button>
     </div>

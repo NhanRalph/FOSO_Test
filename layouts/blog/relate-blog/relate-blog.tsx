@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import BlogCard from "@/components/blog-card/blog-card";
@@ -8,9 +8,20 @@ import { blogs } from "@/shared/data";
 
 export function RelateBlog() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerPage = 3;
-  
-  // Chia blogs thành từng nhóm 3 phần tử
+  const [itemsPerPage, setItemsPerPage] = useState(3);
+
+  // Xác định số lượng bài viết hiển thị theo kích thước màn hình
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      setItemsPerPage(window.innerWidth < 800 ? 2 : 3);
+    };
+
+    updateItemsPerPage(); // Gọi ngay khi component mount
+    window.addEventListener("resize", updateItemsPerPage);
+
+    return () => window.removeEventListener("resize", updateItemsPerPage);
+  }, []);
+
   const totalGroups = Math.ceil(blogs.length / itemsPerPage);
 
   const nextSlide = () => {
@@ -55,8 +66,8 @@ export function RelateBlog() {
         {blogs
           .slice(currentIndex * itemsPerPage, (currentIndex + 1) * itemsPerPage)
           .map((blog, index) => (
-            <div key={index} className="w-1/3">
-                <BlogCard blog={blog} index={index} />
+            <div key={index} className={`${itemsPerPage === 2 ? "w-[50%]" : "w-1/3"}`}>
+              <BlogCard blog={blog} index={index} />
             </div>
           ))}
       </div>
