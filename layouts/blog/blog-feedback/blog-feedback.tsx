@@ -48,11 +48,13 @@ const FeedbackComponent: React.FC = () => {
     { id: 'angry', emoji: '😠', label: 'Tức giận', count: votes.angry }
   ];
 
+  const countTotalVotes = Object.values(votes).reduce((acc, curr) => acc + curr, 0);
+
   return (
     <div className="w-full mx-auto p-6 bg-white dark:bg-[#00000050] rounded-3xl shadow-md mt-8">
       <div className="text-center mb-4">
         <h2 className="text-2xl font-bold text-gray-700 dark:text-zinc-200">Bạn thấy bài viết như thế nào?</h2>
-        <p className="text-gray-500 mt-1">4 phản hồi</p>
+        <p className="text-gray-500 mt-1">{countTotalVotes} phản hồi</p>
       </div>
 
       <div className="flex flex-wrap justify-center gap-4">

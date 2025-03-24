@@ -31,14 +31,18 @@ export default function RootLayout({
       <main>
         <ThemeProvider>
           {/* <AuthProvider> */}
-              <Header />
-              <Breadcrumb />
-              <ClientWrapper>
-                {children}
-              </ClientWrapper>
-              <div className="h-32 w-full"></div>
-              <FloatThemeComponent />
-              <ToastContainer />
+              <div className="w-full">
+                <Header />
+                <div className="h-20 w-full"></div>
+                <Breadcrumb />
+                <ClientWrapper>
+                  {children}
+                </ClientWrapper>
+                <div className="h-32 w-full"></div>
+                <FloatThemeComponent />
+                <ToastContainer />
+
+              </div>
           {/* </AuthProvider> */}
         </ThemeProvider>
         </main>
